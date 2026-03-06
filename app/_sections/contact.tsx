@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -42,7 +44,10 @@ export function Contact() {
           </div>
 
           {/* Right — form */}
-          <form className="flex flex-col gap-6">
+          <form
+            className="flex flex-col gap-6"
+            onSubmit={(e) => e.preventDefault()}
+          >
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label
