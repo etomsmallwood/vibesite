@@ -15,73 +15,43 @@
   :root {
     /* ── Surface & Text ── */
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 20 10% 8%;
 
     /* ── Card ── */
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 20 10% 8%;
 
     /* ── Popover ── */
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 20 10% 8%;
 
     /* ── Primary action ── */
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 20 10% 8%;
+    --primary-foreground: 38 80% 52%;
 
     /* ── Secondary action ── */
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 30 10% 95%;
+    --secondary-foreground: 20 10% 8%;
 
     /* ── Muted / subtle ── */
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 30 10% 95%;
+    --muted-foreground: 20 5% 46%;
 
-    /* ── Accent ── */
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    /* ── Accent (amber/gold) ── */
+    --accent: 38 80% 52%;
+    --accent-foreground: 20 10% 8%;
 
     /* ── Destructive ── */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     /* ── Borders & Inputs ── */
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --border: 20 5% 88%;
+    --input: 20 5% 88%;
+    --ring: 38 80% 52%;
 
     /* ── Radius ── */
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --radius: 0.25rem;
   }
 }
 
@@ -92,5 +62,47 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/*
+ * ─── HERO BACKGROUND ─────────────────────────────────────────
+ * Boxing gym photo with dark overlays for text legibility.
+ * Photo: /public/hero.avif
+ * ─────────────────────────────────────────────────────────────
+ */
+@layer components {
+  .hero-bg {
+    background-color: #0c0908;
+    background-image:
+      /* Dark gradient fade from bottom — anchors the text */
+      linear-gradient(
+        to top,
+        rgba(8, 5, 3, 0.92) 0%,
+        rgba(8, 5, 3, 0.55) 40%,
+        rgba(8, 5, 3, 0.25) 100%
+      ),
+      /* Edge vignette */
+      radial-gradient(
+        ellipse 110% 100% at 50% 50%,
+        transparent 45%,
+        rgba(5, 3, 2, 0.65) 100%
+      ),
+      /* Boxing gym photo */
+      url("/hero.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Subtle noise grain */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+    pointer-events: none;
   }
 }
