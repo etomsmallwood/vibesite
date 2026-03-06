@@ -43,7 +43,7 @@ export function Hero() {
           <div className="flex shrink-0 gap-4">
             <a
               href="#work"
-              className="inline-flex items-center gap-2 rounded bg-accent px-7 py-3.5 text-sm font-bold tracking-wider text-primary uppercase transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded bg-accent px-7 py-3.5 text-sm font-bold tracking-wider text-primary uppercase transition-colors hover:bg-accent/85 active:scale-[0.97]"
             >
               View Work
               <span aria-hidden>↓</span>

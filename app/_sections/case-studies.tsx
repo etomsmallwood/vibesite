@@ -88,7 +88,7 @@ export function CaseStudies() {
                 </div>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-foreground uppercase transition-gap group-hover:gap-3"
+                  className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-foreground uppercase transition-colors group-hover:gap-3 group-hover:text-accent"
                 >
                   View Case Study
                   <span

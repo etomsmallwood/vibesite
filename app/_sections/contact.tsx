@@ -89,7 +89,7 @@ export function Contact() {
             </div>
             <Button
               type="submit"
-              className="self-start rounded-sm bg-accent px-8 py-3 font-bold tracking-wider text-primary uppercase hover:opacity-90"
+              className="self-start rounded-sm bg-accent px-8 py-3 font-bold tracking-wider text-primary uppercase transition-colors hover:bg-accent/85 active:scale-[0.97]"
             >
               Send Message →
             </Button>
